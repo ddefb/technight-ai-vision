@@ -1,68 +1,226 @@
+# FaceVibe AI Vision
+### Tech Night 2026.1 Edition
 
-# FaceVibe - Real-Time Emotion Detection
+FaceVibe AI Vision is a real-time emotion recognition platform designed for interactive experiences, live demonstrations, and AI showcase environments.
 
-This project is a real-time emotion detection application that uses a pre-trained deep learning model to recognize emotions through facial expressions captured on live video. Built with Flask, OpenCV, and Keras, the application identifies and displays emotions in real time, making it ideal for interactive interfaces, user experience research, and various real-time monitoring applications.
+Built with Flask, OpenCV, TensorFlow/Keras, and Docker, the system performs facial emotion analysis directly from a live camera feed and presents the results through a modern fullscreen interface optimized for TVs, kiosks, and event displays.
 
-### Key Features
-- Real-Time Emotion Detection: Utilizes the webcam to capture and classify emotions on live video feeds.
-- Flask Web Application: The application serves as a web app with a live video feed viewable directly in the browser.
-- Emotion Classification: Identifies emotions like Angry, Disgust, Fear, Happy, Neutral, Sad, and Surprise.
-- Face Detection with OpenCV: Detects and isolates faces within each video frame to focus emotion analysis only on the facial region.
-- User-Friendly Interface: The live video feed in the browser displays real-time emotion predictions, overlaid with the detected emotion label.
+This project evolved from the original FaceVibe repository into a production-ready interactive AI experience showcased at Tech Night 2026.1.
 
-### How It Works
-- Face Detection: Each frame from the webcam feed is processed to detect faces using OpenCV’s Haar Cascade classifier.
-- Emotion Prediction: Detected facial regions are resized and preprocessed, then fed into a pre-trained Keras model for emotion prediction.
-- Display Emotion: The predicted emotion label is displayed on top of each detected face in the live video stream.
-- Web Interface: The Flask application serves the real-time video feed with emotions displayed, accessible through a web browser.
+---
 
-### Installation
-1. Clone the repository
-   ```sh
-   git clone https://github.com/letsdoitbycode/FaceVibe.git
-   cd FaceVibe
-   ```
+# Features
 
-3. Create a virtual environment and activate it:
-   ```sh
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
+## Real-Time Emotion Detection
 
-3. Install the required packages:
-   ```sh
-   pip install requirements.txt
-   ```
-   
-4. Run the Flask app:
-    ```sh
-    python app.py
-    ```
+Detects and classifies facial emotions live through webcam video streams.
 
-### Project Structure
+Supported emotions:
+- Angry
+- Disgust
+- Fear
+- Happy
+- Neutral
+- Sad
+- Surprise
+
+---
+
+## AI-Powered Inference
+
+Uses a pre-trained TensorFlow/Keras CNN model for facial emotion classification.
+
+---
+
+## Fullscreen Event Interface
+
+Custom UI inspired by the CESAR School Tech Night visual identity:
+- Fullscreen immersive experience
+- Glassmorphism overlays
+- TV-optimized layout
+- Live AI status indicators
+- Event-ready visual presentation
+
+---
+
+## Dockerized Deployment
+
+The application is fully containerized using Docker and Docker Compose:
+- Easy deployment
+- Environment isolation
+- Restart recovery
+- Healthcheck monitoring
+
+---
+
+## TV / Kiosk Optimized
+
+Designed specifically for:
+- Tech events
+- Exhibition booths
+- AI showcases
+- Interactive installations
+- Smart TV displays
+- Kiosk mode presentations
+
+---
+
+# Tech Stack
+
+- Flask
+- OpenCV
+- TensorFlow / Keras
+- NumPy
+- Docker
+- HTML5 / CSS3
+
+---
+
+# Project Structure
+
 ```plaintext
-YouTube-Video-Summarization-App/
+facevibe/
 │
-├── app.py                                              # Main Flask application
-├── templates/
-│   └── index.html                                      # Main HTML file
+├── app.py
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+├── .dockerignore
+│
+├── models/
+│   └── model.h5
+│
+├── haarcascades/
+│   └── haarcascade_frontalface_default.xml
+│
 ├── static/
-│   ├── style.css                                       # CSS styles
-├── emotion-classification-cnn-using-keras.ipynb        # Script to define and train the CNN model.
-├── haarcascade_frontalface_default.xml                 # Pre-trained Haar Cascade classifier for face detection.
-├── model.h5                                            # Pre-trained CNN model for emotion detection.
-├── requirements.txt                                    # requirements for the project
-└── README.md                                           # This README file
+│   ├── style.css
+│   └── logo_cesar.png
+│
+└── templates/
+    └── index.html
 ```
 
-## Demo Application Interface
-![Screenshot 2024-11-01 163047](https://github.com/user-attachments/assets/2c54f20e-0464-421d-a768-fbbfdd47bc3f)
+---
 
+# Running Locally
 
+## 1. Clone the Repository
 
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
+```bash
+git clone git@github.com:ddefb/technight-ai-vision.git
+cd technight-ai-vision
+```
 
+---
 
+## 2. Create Virtual Environment
 
+```bash
+python -m venv venv
+```
 
+### Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+---
+
+## 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 4. Run the Application
+
+```bash
+python app.py
+```
+
+---
+
+# Running with Docker
+
+## Build Container
+
+```bash
+docker compose build
+```
+
+---
+
+## Start Application
+
+```bash
+docker compose up
+```
+
+---
+
+## Run in Background
+
+```bash
+docker compose up -d
+```
+
+---
+
+# Healthcheck & Recovery
+
+The container includes:
+- Automatic restart policies
+- Healthcheck monitoring
+- Failure recovery support
+
+Useful for long-running demos and event installations.
+
+---
+
+# Kiosk Mode (Recommended for TVs)
+
+For fullscreen event presentation:
+
+```bash
+chromium --kiosk http://localhost:5000
+```
+
+---
+
+# Demo Experience
+
+The interface was redesigned for Tech Night 2026.1 with:
+- CESAR School-inspired visual identity
+- Large-scale TV readability
+- Minimalist futuristic overlays
+- Interactive AI showcase aesthetics
+
+---
+
+# Credits
+
+This project was originally based on the repository: https://github.com/letsdoitbycode/FaceVibe
+
+The project was extended and redesigned with:
+- Docker infrastructure
+- Event-oriented UI/UX
+- Fullscreen TV presentation
+- Production deployment improvements
+- Healthcheck and recovery support
+- Modern visual interface
+
+---
+
+# License
+
+This project maintains attribution to the original repository and is intended for educational, research, and demonstration purposes.
