@@ -2,52 +2,402 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
+html,
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #282c34;
-    color: #ffffff;
-}
-
-.container {
-    text-align: center;
-    max-width: 800px;
-    width: 90%;
-    padding: 20px;
-    border-radius: 10px;
-    background: #1c1e22;
-}
-
-h1 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #61dafb;
-}
-
-.video-container {
-    position: relative;
     width: 100%;
+    height: 100%;
     overflow: hidden;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+
+    font-family: 'Inter', sans-serif;
+
+    background: #2E2AD0;
+}
+
+.background {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2E2AD0 0%,
+            #2622b8 100%
+        );
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.circle-top {
+    width: 100px;
+    height: 100px;
+
+    top: -40px;
+    left: 60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FF5C00,
+            #C4007A
+        );
+
+    opacity: 0.95;
+}
+
+.circle-left {
+    width: 620px;
+    height: 620px;
+
+    bottom: -180px;
+    left: -120px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FF6A00,
+            #C4007A
+        );
+
+    opacity: 0.95;
+}
+
+.circle-right {
+    width: 380px;
+    height: 380px;
+
+    bottom: -80px;
+    right: -100px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FF6A00,
+            #FF005C
+        );
+
+    opacity: 0.95;
+}
+
+.circle-small {
+    width: 120px;
+    height: 120px;
+
+    top: 34%;
+    right: 7%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FF4D00,
+            #C4007A
+        );
+
+    opacity: 0.95;
+}
+
+.hero {
+    position: absolute;
+
+    top: 35px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    z-index: 20;
+}
+
+.hero-text h1 {
+    color: white;
+
+    font-size: 2.6rem;
+    font-weight: 300;
+
+    line-height: 1.08;
+
+    max-width: 480px;
+
+    text-shadow:
+        0 4px 20px rgba(0,0,0,0.25);
+}
+
+.hero-text span {
+    font-style: italic;
+    font-weight: 700;
+}
+
+.logo {
+    position: relative;
+    z-index: 30;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+
+    object-fit: contain;
+
+    opacity: 0.92;
+
+    filter:
+        drop-shadow(
+            0 4px 20px rgba(0,0,0,0.25)
+        );
+}
+
+.video-wrapper {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 80px;
+}
+
+.video-card {
+    position: relative;
+
+    width: 88vw;
+    height: 82vh;
+
+    overflow: hidden;
+
+    border-radius: 36px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 0 40px rgba(255, 94, 0, 0.25),
+        0 0 80px rgba(196, 0, 122, 0.18),
+        0 20px 60px rgba(0,0,0,0.45);
 }
 
 #video-feed {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+
+    object-fit: cover;
 }
 
-p {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #bbb;
+.overlay-top {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 24px 34px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.70),
+            rgba(0,0,0,0.10),
+            transparent
+        );
+}
+
+.overlay-top h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+
+    text-shadow:
+        0 4px 15px rgba(0,0,0,0.25);
+}
+
+.overlay-top p {
+    margin-top: 5px;
+
+    font-size: 1.05rem;
+
+    opacity: 0.88;
+}
+
+.live-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding:
+        12px 18px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 1rem;
+
+    letter-spacing: 0.22em;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.live-dot {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #00ff88;
+
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.status-card {
+    position: absolute;
+
+    left: 30px;
+    bottom: 32px;
+
+    min-width: 340px;
+
+    padding: 26px;
+
+    border-radius: 28px;
+
+    color: white;
+
+    background:
+        rgba(0,0,0,0.58);
+
+    backdrop-filter: blur(18px);
+
+    border:
+        1px solid rgba(255,255,255,0.10);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25);
+}
+
+.status-card h3 {
+    margin-bottom: 20px;
+
+    font-size: 0.95rem;
+
+    letter-spacing: 0.32em;
+
+    opacity: 0.72;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 14px;
+
+    font-size: 1.08rem;
+}
+
+.status-item strong {
+    color: #00ff88;
+}
+
+.overlay-footer {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding:
+        18px 28px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    color: white;
+
+    font-size: 1rem;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.72),
+            transparent
+        );
+}
+
+.overlay-footer span {
+    opacity: 0.78;
+}
+
+@media (max-width: 1600px) {
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .video-card {
+        width: 90vw;
+        height: 80vh;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .hero-text {
+        display: none;
+    }
+
+    .video-card {
+        width: 94vw;
+        height: 84vh;
+    }
+
+    .status-card {
+        transform: scale(0.92);
+        transform-origin: bottom left;
+    }
 }

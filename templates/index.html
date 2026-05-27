@@ -1,20 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emotion Detection</title>
+
+    <title>Tech Night | Emotion Detection</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Real-Time Emotion Detection</h1>
-        <div class="video-container">
-            <img src="{{ url_for('video_feed') }}" id="video-feed" alt="Video Feed">
-        </div>
-        <p>Detecting emotions in real-time!</p>
-        <span></span>
-            &copy; Copyright 2024 by <span>letsdoitbycode</span> | All Rights Reserved
+
+    <div class="background">
+
+        <div class="circle circle-top"></div>
+        <div class="circle circle-left"></div>
+        <div class="circle circle-right"></div>
+        <div class="circle circle-small"></div>
+
+        <header class="hero">
+
+            <div class="hero-text">
+            </div>
+
+            <div class="logo">
+                <img 
+                    src="{{ url_for('static', filename='logo_cesar.png') }}" 
+                    alt="Logo">
+            </div>
+
+        </header>
+
+        <main class="video-wrapper">
+
+            <div class="video-card">
+
+                <img 
+                    src="{{ url_for('video_feed') }}"
+                    id="video-feed"
+                    alt="Emotion Detection Feed"
+                >
+
+                <div class="overlay-top">
+
+                    <div>
+                        <h2>Tech Night AI Vision</h2>
+                        <p>Real-Time Emotion Detection</p>
+                    </div>
+
+                    <div class="live-status">
+                        <span class="live-dot"></span>
+                        LIVE
+                    </div>
+
+                </div>
+
+                <div class="overlay-footer">
+
+                    <span>
+                    </span>
+
+                    <span>
+                        <!-- Tech Night 2026.1 -->
+                    </span>
+
+                </div>
+
+            </div>
+
+        </main>
+
     </div>
+
 </body>
 </html>

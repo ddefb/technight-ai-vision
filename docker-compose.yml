@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+
+  facevibe:
+
+    build: .
+
+    container_name: facevibe
+
+    ports:
+      - "5000:5000"
+
+    devices:
+      - "/dev/video0:/dev/video0"
+
+    privileged: true
+
+    restart: unless-stopped
